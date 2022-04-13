@@ -1,13 +1,24 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+import MovieCard from "./MovieCard";
 
 import './App.css';
 
-// eslint-disable-next-line
 import SearchIcon from './search.svg';
 
 const API_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=e3e0085";
 
+const movie1 = {
+    Poster: "https://m.media-amazon.com/images/M/MV5BMjQ4MzcxNDU3N15BMl5BanBnXkFtZTgwOTE1MzMxNzE@._V1_SX300.jpg",
+    Title: "Superman, Spiderman or Batman",
+    Type: "movie",
+    Year: "2011",
+    imdbID: "tt2084949"
+}
+
 const App = () => {
+
+    const [movies, setMovies] = useState();
 
     const searchMovies = async (title) => {
         const response = await fetch(`${API_URL}&s=${title}`);
@@ -23,6 +34,23 @@ const App = () => {
     return (
         <div className='app'>
             <h1>Movie World</h1>
+
+            <div className="search">
+                <input
+                placeholder="Search for Movies"
+                value="The Avengers"
+                onChange={() => {}}
+                />
+                <img
+                src={SearchIcon}
+                alt="Search"
+                onClick={() => {}}
+                />
+            </div>
+
+            <div className="container">
+            <MovieCard movie1={movie1} />
+            </div>
         </div>
     );
 }
