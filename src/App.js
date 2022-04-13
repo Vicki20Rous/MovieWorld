@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 
+import './App.css';
 
+// eslint-disable-next-line
+import SearchIcon from './search.svg';
 
 const API_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=e3e0085";
 
@@ -18,7 +21,9 @@ const App = () => {
     }, []);
 
     return (
-        <h1>App</h1>
+        <div className='app'>
+            <h1>Movie World</h1>
+        </div>
     );
 }
 
